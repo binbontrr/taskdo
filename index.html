@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="description" content="To-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <button id="themeToggle" class="theme-toggle" aria-label="Theme Selector">🎨</button>
+    <div id="themePanel" class="theme-panel" aria-hidden="true">
+        <div class="theme-panel-header">Theme</div>
+        <div class="theme-options">
+            <button class="theme-option" data-theme="theme-sunrise"><span class="swatch sunrise"></span>Sunrise</button>
+            <button class="theme-option" data-theme="theme-green"><span class="swatch green"></span>Mint Sky</button>
+            <button class="theme-option" data-theme="theme-dark"><span class="swatch dark"></span>Ocean Dark</button>
+            <button class="theme-option" data-theme="theme-midnight"><span class="swatch midnight"></span>Midnight</button>
+            <button class="theme-option" data-theme="theme-rose"><span class="swatch rose"></span>Rose</button>
+            <button class="theme-option" data-theme="theme-mint"><span class="swatch mint"></span>Mint</button>
+            <button class="theme-option" data-theme="theme-lavender"><span class="swatch lavender"></span>Lavender</button>
+            <button class="theme-option" data-theme="theme-sunset"><span class="swatch sunset"></span>Sunset</button>
+            <button class="theme-option" data-theme="theme-ice"><span class="swatch ice"></span>Ice</button>
+            <button class="theme-option" data-theme="" title="Default"><span class="swatch default"></span>Default</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="timer-section">
+            <div class="timer-display">00:00:00</div>
+            <div class="timer-controls">
+                <button id="startBtn" class="btn">Start</button>
+                <button id="stopBtn" class="btn">Stop</button>
+                <button id="resetBtn" class="btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="todo-section">
+            <div class="todo-header">
+                <h2>Today's Tasks</h2>
+                <div class="todo-header-right">
+                    <div class="progress-mini">
+                        <div class="progress-info">
+                            <span id="progressPercent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <button id="archiveBtn" class="btn btn-secondary">Archive All</button>
+                </div>
+            </div>
+            <div class="todo-input">
+                <input type="text" id="todoInput" placeholder="Add new task...">
+                <button id="addTodo" class="btn">Add</button>
+            </div>
+            <ul id="todoList" class="todo-list"></ul>
+        </div>
+
+        <div class="old-todos-section">
+            <div class="old-todos-header">
+                <h2>Past Tasks</h2>
+                <button id="toggleHistoryBtn" class="btn btn-secondary">
+                    <span class="show-text">Show History</span>
+                    <span class="hide-text">Hide History</span>
+                </button>
+            </div>
+            <div id="oldTodosContainer" class="old-todos-container hidden"></div>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Success!</h3>
+                <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>All tasks archived successfully!</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
